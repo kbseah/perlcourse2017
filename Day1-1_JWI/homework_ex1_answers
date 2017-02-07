@@ -1,0 +1,132 @@
+#!/usr/bin/perl
+# written by Juliane Wippler 2016-02-08 (Perl course)
+# use strict;
+# use warnings;
+# use diagnostics;
+
+#####################################################################################################
+
+# #!/usr/bin/perl
+# print;
+
+# Without pragmas: no warnings at all
+
+# With use warnings pragma: 
+# Use of uninitialized value $_ in print at ./homework_ex1.txt line 10.
+# -> this warns us that we are using $_ implicitly in the print statement (since this is what makes 
+# most sense in this context for Perl). However, this might not be what we actually want, maybe we
+# actually wanted to use some other variable etc., hence the warning. 
+
+# With use diagnostics pragma:
+# Use of uninitialized value $_ in print at ./homework_ex1.txt line 10 (#1)
+#     (W uninitialized) An undefined value was used as if it were already
+#     defined.  It was interpreted as a "" or a 0, but maybe it was a mistake.
+#     To suppress this warning assign a defined value to your variables.
+#     
+#     To help you figure out what was undefined, perl will try to tell you
+#     the name of the variable (if any) that was undefined.  In some cases
+#     it cannot do this, so it also tells you what operation you used the
+#     undefined value in.  Note, however, that perl optimizes your program
+#     and the operation displayed in the warning may not necessarily appear
+#     literally in your program.  For example, "that $foo" is usually
+#     optimized into "that " . $foo, and the warning will refer to the
+#     concatenation (.) operator, even though there is no . in
+#     your program.
+# -> this gives you a much more thorough explanation what the warning is about.
+# Especially when you are just starting out with Perl, these more verbose warnings
+# can be very useful in finding problems in the code and to make the code run robustly.
+
+
+#####################################################################################################
+
+# #!/usr/bin/perl
+# 3 + 4;
+
+# Without pragmas: no warnings at all
+
+# With use warnings pragma: 
+# Useless use of a constant (7) in void context at ./homework_ex1.txt line 43.
+# -> Tells us that the operation we performed is useless, as we don't use it for anything
+
+# With use diagnostics pragma:
+# Useless use of a constant (7) in void context at ./homework_ex1.txt line 43 (#1)
+#     (W void) You did something without a side effect in a context that does
+#     nothing with the return value, such as a statement that doesn't return a
+#     value from a block, or the left side of a scalar comma operator.  Very
+#     often this points not to stupidity on your part, but a failure of Perl
+#     to parse your program the way you thought it would.  For example, you'd
+#     get this if you mixed up your C precedence with Python precedence and
+#     said
+#     
+#         $one, $two = 1, 2;
+#     
+#     when you meant to say
+#     
+#         ($one, $two) = (1, 2);
+#     
+#     Another common error is to use ordinary parentheses to construct a list
+#     reference when you should be using square or curly brackets, for
+#     example, if you say
+#     
+#         $array = (1,2);
+#     
+#     when you should have said
+#     
+#         $array = [1,2];
+#     
+#     The square brackets explicitly turn a list value into a scalar value,
+#     while parentheses do not.  So when a parenthesized list is evaluated in
+#     a scalar context, the comma is treated like C's comma operator, which
+#     throws away the left argument, which is not what you want.  See
+#     perlref for more on this.
+#     
+#     This warning will not be issued for numerical constants equal to 0 or 1
+#     since they are often used in statements like
+#     
+#         1 while sub_with_side_effects();
+#     
+#     String constants that would normally evaluate to 0 or 1 are warned
+#     about.
+# -> Again, diagnostics gives us a lot more explanation what the warning is about
+
+#####################################################################################################
+
+# #!/usr/bin/perl
+# print $n + 1;
+
+# Without pragmas: since we used "use strict", we actually do get an error here:
+# Global symbol "$n" requires explicit package name at ./homework_ex1.txt line 95.
+# Execution of ./homework_ex1.txt aborted due to compilation errors.
+# -> this is because we did not declare the variable $n with "my"
+
+# ADD "my"
+
+# #!/usr/bin/perl
+# print my $n + 1;
+
+# Now, without pragmas: no warnings at all
+
+# With use warnings pragma: 
+# Use of uninitialized value $n in addition (+) at ./homework_ex1.txt line 105.
+# -> this warns us that, although we did declare the variable with "my", we did not tell Perl
+# what kind of variable $n is (string or number?). Perl interprets $n as a number (0), because
+# addition only makes sense in number context. However, Perl warns us here that this automatic
+# behaviour might not be what we want, and forces us to explicitly define $n.
+
+
+# With use diagnostics pragma:
+# Use of uninitialized value $n in addition (+) at ./homework_ex1.txt line 105 (#1)
+#     (W uninitialized) An undefined value was used as if it were already
+#     defined.  It was interpreted as a "" or a 0, but maybe it was a mistake.
+#     To suppress this warning assign a defined value to your variables.
+#     
+#     To help you figure out what was undefined, perl will try to tell you
+#     the name of the variable (if any) that was undefined.  In some cases
+#     it cannot do this, so it also tells you what operation you used the
+#     undefined value in.  Note, however, that perl optimizes your program
+#     and the operation displayed in the warning may not necessarily appear
+#     literally in your program.  For example, "that $foo" is usually
+#     optimized into "that " . $foo, and the warning will refer to the
+#     concatenation (.) operator, even though there is no . in
+#     your program.
+# -> Again, we simply get more thorough explanations 

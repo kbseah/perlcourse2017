@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+# written by Juliane Wippler 2016-02-08 (Perl course)
+use strict;
+use warnings;
+use diagnostics;
+
+while (<STDIN>) {
+  chomp;
+  if (/transferase\b|phosphorylase\b/i) {
+    my $left = $`;
+    my $right = $';
+    my $match = $&;
+    $left =~ s/\s*\/product="//;
+    $left =~ s/^\s*//;
+    $right =~ s/\s*"//;
+    $right =~ s/^$/ nothing/;
+    print "Found a match to $match\nContext left: $left\nContext right:$right\n\n";
+  } 
+}

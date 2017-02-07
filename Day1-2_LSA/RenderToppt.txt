@@ -1,0 +1,1 @@
+jupyter-nbconvert --to slides Exercises-REGEX_LS.ipynb --reveal-prefix=../reveal.js

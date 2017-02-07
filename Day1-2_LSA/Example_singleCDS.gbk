@@ -1,0 +1,32 @@
+LOCUS       NODE_131387_length_498_cov_246.086          498 bp    DNA     linear   UNK 
+DEFINITION  SOX smybiont of Bathymodiolus Cryptic sp. GoM
+ACCESSION   NODE_131387_length_498_cov_246.086
+KEYWORDS    .
+SOURCE      SOX smybiont of Bathymodiolus Cryptic sp. GoM.
+  ORGANISM  SOX smybiont of Bathymodiolus Cryptic sp. GoM
+            Bacteria.
+FEATURES             Location/Qualifiers
+     source          1..498
+                     /mol_type="genomic DNA"
+                     /genome_id="6666666.225369"
+                     /organism="SOX smybiont"
+     CDS             complement(104..454)
+                     /db_xref="SEED:fig|6666666.225369.peg.189"
+                     /translation="MRTAAWANGGANDICPSGFSVPTEAEITADTVHDGTYTGSNDIT
+                     NSATAFSSFLKIPVAGFRNRTNGALGSVGSGASLWSRSAGGANGRVLSVGSGYVVFGS
+                     VDRTGGFSVRCIKD"
+                     /product="hypothetical protein"
+                     /transl_table=11
+BASE COUNT      137 a    126 c    120 g    115 t
+ORIGIN      
+        1 gtggtgcgtt tatgatgtga atttaagata accatttcag gctaaagcca tgaaatggta
+       61 aagtgacgaa agtgtacaaa tgaatcaaag tgtcacgctg cgcttaatcc ttaatgcaac
+      121 gaacactaaa gccgccggtg cgatcaacgc tgccgaagac cacatagcca ctaccgacgc
+      181 tcaaaacgcg accattcgcg ccaccagcag accgactcca caagctggcg ccagagccaa
+      241 cactgccaag tgcgccattc gtacgattgc ggaagccagc aactgggatt ttaaggaaac
+      301 tggagaaggc tgtggcgctg ttagtaatat cattgctgcc cgtgtaagta ccgtcatgaa
+      361 cagtgtcagc agtaatttca gcttccgttg gtacactaaa gcctgatggg caaatgtcat
+      421 tagcgccgcc attcgcccaa gcggctgtgc gcaatgcacc actatcgtct atattgttgc
+      481 cgtcttgagt gttatttt
+//
+

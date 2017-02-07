@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+# written by Juliane Wippler 2016-02-08 (Perl course)
+use strict;
+use warnings;
+use diagnostics;
+
+my $calculation_1a = 3 ** 5 ** 4;
+my $calculation_1b = (3 ** 5) ** 4;
+my $calculation_1c = 3 ** (5 ** 4);
+print "calculation_1a: $calculation_1a\nCalculation_1b: $calculation_1b\nCalculation_1c: $calculation_1c\n";
+# Answers:
+# 1) Exponentation has right associativity
+# 2) Yes, the order of execution matters
+
+
+my $calculation_2a = 3 / 5 * 4;
+my $calculation_2b = (3 / 5) * 4;
+my $calculation_2c = 3 / (5 * 4);
+print "calculation_2a: $calculation_2a\nCalculation_2b: $calculation_2b\nCalculation_2c: $calculation_2c\n";
+# Answers:
+# 1) Multiplication and division is carried out from left to right
+# 2) Yes, the order of execution matters
+
+
+my $calculation_3a = 3 + 5 * 4 ** 2 - 6;
+my $calculation_3b = (3 + 5) * 4 ** 2 - 6;
+my $calculation_3c = 3 + (5 * 4) ** 2 - 6;
+my $calculation_3d = 3 + 5 * (4 ** 2) - 6;
+my $calculation_3e = 3 + 5 * 4 ** (2 - 6);
+print "calculation_3a: $calculation_3a\nCalculation_3b: $calculation_3b\nCalculation_3c: $calculation_3c\nCalculation_3d: $calculation_3d\nCalculation_3e: $calculation_3e\n";
+# Answers:
+# 1) Exponentation is carried out first, then multiplication, the addition/subtraction
+# 2) Yes, the order of execution matters ;)

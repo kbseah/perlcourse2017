@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+# written by Juliane Wippler 2016-02-08 (Perl course)
+use strict;
+use warnings;
+use diagnostics;
+
+
+my $count = 0;
+while (<STDIN>) {
+  chomp;
+  if (/[LIVMFYC]{1}[SA]{1}[SAPGLVFYKQH]{1}G[DENQMW]{1}[KRQASPCLIMFW]{1}[KRNQSTAVM]{1}[KRACLVM]{1}[LIVMFYPAN]{1}[^PHY]{1}[LIVMFW]{1}[SAGCLIVP]{1}[^KRHP]{1}[LIVMFYWSTA]{1}/) {
+    $count++;
+  }
+}
+print " ABC transporter pattern was found $count times\n";
+
+# Prosite pattern [LIVMFYC]-[SA]-[SAPGLVFYKQH]-G-[DENQMW]-[KRQASPCLIMFW]-[KRNQSTAVM]-[KRACLVM]-[LIVMFYPAN]-{PHY}-[LIVMFW]-[SAGCLIVP]-{FYWHP}-{KRHP}-[LIVMFYWSTA].
+
+# x = any amino acid
+# [] ambiguities
+# {} not-accepted amino acids (any amino acid except the ones in curly braces)
+# elements are separated by -
+# repetitions are indicated by (), e.g. x(2) is the same as xx
