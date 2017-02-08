@@ -21,9 +21,20 @@ Find the files you need for the examples and exercises here and here.
 
 ### Slides
 
- * [Day 1 Slides (ppt)](Day1-1_JWI/Day1_intro_scalars_regex.pptx)
+ * [Day 1 Part 1 Slides (ppt)](Day1-1_JWI/Day1_intro_scalars_regex.pptx)
+ * [Day 1 Part 2 Slides (pdf)](Day1-2_LSA/Day1-2_LSA/)
+
+### Files for in-class examples
+
+ * [Hello world script](Day1-1_JWI/helloworld.pl)
+ * [Check matches](Day1-1_JWI/check_match.pl)
+ * [Count CDSs](Day1-1_JWI/count_CDS.pl)
+ * [Example Genbank file 1](Day1-1_JWI/example_genbank.gbk)
+ * [Example Genbank file 2](Day1-2_LSA/Example_singleCDS.gbk)
 
 ### Homework exercises
+
+Try the exercises first before peeking at the solutions! You can always know when you have the correct solution without looking at the answers - when the code runs without errors.
 
  * [Day 1 Part 1](Day1-1_JWI/homework_exercises_day1-1.ipynb)
    * Answers to [ex1](Day1-1_JWI/homework_ex1_answers)
@@ -31,6 +42,7 @@ Find the files you need for the examples and exercises here and here.
    * Answers to [ex3](Day1-1_JWI/homework_ex3_answers)
    * Answers to [ex4](Day1-1_JWI/homework_ex4_answers)
  * [Day 1 Part 2 (Regular expressions)](Day1-2_LSA/Exercises-REGEX_LS.ipynb)
+   * Answer to [Regular expressions](Day1-2_LSA/HomeworkSoultionREGEX.pl)
 
 ### Handouts/resources
 
