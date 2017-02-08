@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="reading-and-writing" class="slide level1">
+<h1>Reading and Writing</h1>
+<p>Brandon Seah</p>
+<p>Perl Course 2017</p>
+</section>
+<section class="slide level1">
+
+<h2 id="review-standard-streams">Review: Standard Streams</h2>
+<p>Unix is a <a href="https://en.wikipedia.org/wiki/Series_of_tubes">series of tubes</a></p>
+<ul>
+<li><code>STDIN</code></li>
+<li><code>STDOUT</code></li>
+<li><code>STDERR</code></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="review-standard-streams-1">Review: Standard Streams</h2>
+<p><strong>This is in the <code>bash</code> shell</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> <span class="kw">|</span> <span class="fu">less</span> <span class="co"># Redirect STDOUT to another program</span>
+<span class="fu">ls</span> <span class="op">&gt;</span> list_of_files <span class="co"># ... to a file</span>
+<span class="fu">man</span> foobar <span class="op">2&gt;</span> error_message <span class="co"># Redirect STDERR</span>
+<span class="fu">cat</span> error_message <span class="co"># Write file to STDOUT</span></code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="print-to-stdout-stderr"><code>print</code> to STDOUT &amp; STDERR</h2>
+<p>Perl writes to STDOUT by default</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello world!</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+<span class="fu">print</span> STDOUT <span class="kw">&quot;</span><span class="st">Hello world!</span><span class="ch">\n</span><span class="kw">&quot;</span>; <span class="co"># Same thing</span></code></pre></div>
+<p>What about STDERR?</p>
+</section>
+<section class="slide level1">
+
+<h2 id="print-to-stdout-stderr-1"><code>print</code> to STDOUT &amp; STDERR</h2>
+<p>Good guess...</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">print</span> STDERR <span class="kw">&quot;</span><span class="st">Goodbye world...</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<p>Useful for error messages</p>
+</section>
+<section class="slide level1">
+
+<h2 id="opening-a-file">Opening a file</h2>
+<p>Perl needs to know three things</p>
+<ul>
+<li class="fragment">Where is the file? (<em>path</em>)</li>
+<li class="fragment">Open for reading, writing, or appending? (<em>mode</em>)</li>
+<li class="fragment">What's the alias for the stream? (<em>filehandle</em>)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="opening-a-file-1">Opening a file</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$filename</span> = <span class="kw">&quot;</span><span class="st">example.txt</span><span class="kw">&quot;</span>;
+
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$output</span>, <span class="kw">&quot;</span><span class="st">&gt;</span><span class="kw">&quot;</span>, <span class="dt">$filename</span>);
+<span class="fu">print</span> <span class="dt">$output</span> <span class="kw">&quot;</span><span class="st">Hello world!</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+<span class="fu">print</span> <span class="dt">$output</span> <span class="kw">&quot;</span><span class="st">Hello world again!</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+<span class="fu">close</span>(<span class="dt">$output</span>);</code></pre></div>
+<p>Identify the <em>path</em>, <em>mode</em>, and <em>filehandle</em></p>
+</section>
+<section class="slide level1">
+
+<h2 id="writing-vs-appending">Writing vs Appending</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">open</span> (<span class="dt">$output</span>, <span class="kw">&quot;</span><span class="st">&gt;</span><span class="kw">&quot;</span>, <span class="dt">$filename</span>);</code></pre></div>
+<p>vs.</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">open</span> (<span class="dt">$output</span>, <span class="kw">&quot;</span><span class="st">&gt;&gt;</span><span class="kw">&quot;</span>, <span class="dt">$filename</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="reading-a-file">Reading a file</h2>
+<p>Try this:</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">example.txt</span><span class="kw">&quot;</span> <span class="co"># Output from earlier</span>
+
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>);
+<span class="fu">print</span> <span class="dt">$input</span>;
+<span class="fu">close</span>(<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="perl-reads-lines-by-default">Perl reads lines by default</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">example.txt</span><span class="kw">&quot;</span>;
+
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>);
+<span class="kw">my</span> <span class="dt">$line</span> = &lt;<span class="dt">$input</span>&gt;;
+<span class="fu">print</span> <span class="dt">$line</span>;
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="looping-across-a-file">Looping across a file</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">example.txt</span><span class="kw">&quot;</span>;
+<span class="kw">my</span> <span class="dt">$counter</span> = <span class="dv">0</span>; <span class="co"># Counter for lines</span>
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>);
+<span class="kw">while</span> (&lt;<span class="dt">$input</span>&gt;) {
+    <span class="dt">$counter</span>++;
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">line </span><span class="dt">$counter</span><span class="st"> is:</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+    <span class="fu">print</span> <span class="dt">$_</span>;
+}
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="chomp"><code>chomp</code></h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">example.txt</span><span class="kw">&quot;</span>;
+<span class="kw">my</span> <span class="dt">$counter</span> = <span class="dv">0</span>; <span class="co"># Counter for lines</span>
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>);
+<span class="kw">while</span> (&lt;<span class="dt">$input</span>&gt;) {
+    <span class="fu">chomp</span>;
+    <span class="dt">$counter</span>++;
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">line </span><span class="dt">$counter</span><span class="st"> is:</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+    <span class="fu">print</span> <span class="dt">$_</span>;
+}
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="what-if-the-file-isnt-there">What if the file isn't there?</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">nonexistent.txt</span><span class="kw">&quot;</span>;
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>);
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="error-messages">Error messages</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">nonexistent.txt</span><span class="kw">&quot;</span>;
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>) <span class="kw">or</span> <span class="fu">die</span>;
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h2 id="error-messages-1">Error messages</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">nonexistent.txt</span><span class="kw">&quot;</span>;
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>) <span class="kw">or</span> <span class="fu">die</span> (<span class="kw">&quot;</span><span class="dt">$!</span><span class="kw">&quot;</span>);
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+<p>What is reported by <code>$!</code>?</p>
+</section>
+<section class="slide level1">
+
+<h2 id="error-messages-2">Error messages</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$input_file</span> = <span class="kw">&quot;</span><span class="st">nonexistent.txt</span><span class="kw">&quot;</span>;
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$input_file</span>) <span class="kw">or</span> <span class="fu">die</span> (<span class="kw">&quot;</span><span class="st">Can&#39;t find </span><span class="dt">$input</span><span class="st">: </span><span class="dt">$!</span><span class="kw">&quot;</span>);
+<span class="fu">close</span> (<span class="dt">$input</span>);</code></pre></div>
+<p>This should be more informative</p>
+</section>
+<section class="slide level1">
+
+<h2 id="tasks">Tasks</h2>
+<ul>
+<li>Read a Fasta file and extract only the header lines (Hint: regex)</li>
+<li>Read a Fasta file, rename the headers with sequential numbers, and write a new Fasta file (Hint: Use if/else + regex)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="task-1---headers-of-a-fasta-file">Task 1 - Headers of a Fasta file</h2>
+<ul>
+<li>Fasta files have a <em>delimiter</em> for header lines</li>
+</ul>
+<pre><code>&gt;sequence001
+ATGGCTATACTACTGACTGACTGACCCACATGCTTTAGTCACTACTGTT
+ATCGTCTTAAACTTTTGTGCATCTTATCTATGCGTCTCTACGTGTAGTC
+ATCGATGCTACATCGTAGCTGAT
+&gt;sequence002
+ACTCGTAGTCTACNTAGTCGTGATCGATCNTGCTAGTCTATTTCTATCG
+...</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="task-1---headers-of-a-fasta-file-1">Task 1 - Headers of a Fasta file</h2>
+<ul>
+<li class="fragment">Open file to stream with <code>open</code></li>
+<li class="fragment">Iterate over the lines of the file with <code>while</code></li>
+<li class="fragment">Check for matches with <code>if</code> and regex (<code>m//</code>)</li>
+<li class="fragment">Close the stream</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="task-1---headers-of-a-fasta-file-2">Task 1 - Headers of a Fasta file</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">$file</span> = <span class="kw">&quot;</span><span class="st">sequences.fasta</span><span class="kw">&quot;</span>;
+<span class="fu">open</span> (<span class="kw">my</span> <span class="dt">$input</span>, <span class="kw">&quot;</span><span class="st">&lt;</span><span class="kw">&quot;</span>, <span class="dt">$file</span>);
+<span class="kw">while</span> (&lt;<span class="dt">$input</span>&gt;) {
+  <span class="fu">chomp</span>;
+  <span class="kw">if</span> (<span class="kw">m/</span><span class="ch">^</span><span class="ot">&gt;</span><span class="kw">/</span>) {
+    <span class="fu">print</span> <span class="dt">$_</span>;
+  }
+}
+<span class="fu">close</span>(<span class="dt">$input</span>);</code></pre></div>
+<p>Quiz: What does <code>^</code> mean in the RegEx?</p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

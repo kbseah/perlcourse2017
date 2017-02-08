@@ -46,11 +46,40 @@ Try the exercises first before peeking at the solutions! You can always know whe
 
 ### Handouts/resources
 
-
+ * [Perl documentation (Perldoc)](perldoc.perl.org)
+ * [Regex101](www.regex101.com)
 
 ## Day 2
 
-Check back later!
+### Notes
+
+ * [Arrays and Hashes](Day2-1_LSA/ArraysAndHashes.ipynb)
+ * [Loops](Day2-2_KBS/Loops.ipynb)
+ * [Sorting](Day2-2_KBS/Sorting.ipynb)
+ * [Reading and writing files](Day2-2_KBS/Reading_writing_files.ipynb)
+
+### Slides
+
+ * [Loops (Iteration) (pdf)](Day2-2_KBS/presentation_loops.pdf)
+ * [Sorting (pdf)](Day2-2_KBS/presentation_sorting.pdf)
+ * [Reading and writing files (pdf)](Day2-2_KBS/presentation_read_write_files.pdf)
+
+### Files for in-class exercises
+
+ * [Example-2MutipleCDS.gbk](Day2-1_LSA/Example-2MutipleCDS.gbk)
+ * [GBKtoFASTA.pl](Day2-1_LSA/GBKtoFASTA.pl)
+ * [hash_template.pl](Day2-2_KBS/hash_template.pl)
+ * [loops_template.pl](Day2-2_KBS/loops_template.pl)
+ * [sequences.fasta](Day2-2_KBS/sequences.fasta)
+
+### Homework exercises
+
+ * [Arrays and Hashes](Day2-1_LSA/)
+ * [Homework: Fetch CDS from Genbank](Day2-1_LSA/HomeWork_FetchCDSfromGBK.pl)
+
+### Handout
+
+ * [Handout for Day 2](handout_day2.md)
 
 
 ## Day 3

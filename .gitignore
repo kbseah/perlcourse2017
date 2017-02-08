@@ -1,3 +1,4 @@
 # Ignore ipython notebook checkpoints
 ./*/.ipynb_checkpoints
 Day1-2_LSA/REGEX.pl
+Day2-1_LSA/MultiArrayHashV2.ppt

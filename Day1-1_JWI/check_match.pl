@@ -6,9 +6,8 @@ use diagnostics;
 
 while (<STDIN>) {
   chomp;
-  if (/YOUR_PATTERN_HERE/) {
-    print "Matched!\n";
-  } else {
-    print "No match :(\n";
-  }
+  if (/(C)D(S)/) {
+    print "$1\n";
+    print "$2\n";
+  } 
 }
