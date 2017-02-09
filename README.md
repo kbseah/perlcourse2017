@@ -22,7 +22,7 @@ Find the files you need for the examples and exercises here and here.
 ### Slides
 
  * [Day 1 Part 1 Slides (ppt)](Day1-1_JWI/Day1_intro_scalars_regex.pptx)
- * [Day 1 Part 2 Slides (pdf)](Day1-2_LSA/Day1-2_LSA/)
+ * [Day 1 Part 2 Slides (pdf)](Day1-2_LSA/Exercises-REGEX_LS slides.pdf)
 
 ### Files for in-class examples
 
@@ -42,7 +42,8 @@ Try the exercises first before peeking at the solutions! You can always know whe
    * Answers to [ex3](Day1-1_JWI/homework_ex3_answers)
    * Answers to [ex4](Day1-1_JWI/homework_ex4_answers)
  * [Day 1 Part 2 (Regular expressions)](Day1-2_LSA/Exercises-REGEX_LS.ipynb)
-   * Answer to [Regular expressions](Day1-2_LSA/HomeworkSoultionREGEX.pl)
+   * [Perl script for in-class example](Day1-2_LSA/ExerciseDuringCourseREGEX.pl)
+   * Answer to [Regular expressions](Day1-2_LSA/HomeworkSolutionREGEX.pl)
 
 ### Handouts/resources
 
@@ -84,4 +85,16 @@ Try the exercises first before peeking at the solutions! You can always know whe
 
 ## Day 3
 
-Check back later!
+Topics scheduled for Day 2 that are now in Day 3: Sorting, Reading and writing files (see above)
+
+### Notes
+
+ * [Subroutines, Running external commands, Command line arguments](Day3-1_KBS/Advanced_topics.ipynb)
+
+### Slides
+
+
+
+### Handout
+
+ * [Handout for Day 3](handout_day3.md)

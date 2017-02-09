@@ -114,7 +114,7 @@ for (my $i=0; $i< scalar(@ways); $i++) {
 ```perl
 my @ways = ... ; # From above
 foreach my $current_way (@ways) {
-   print "I love thee ". $currentWay."\n";
+   print "I love thee ". $current_way."\n";
 }
 ```
 

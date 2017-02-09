@@ -197,8 +197,8 @@ This should be more informative
 
 ## Tasks
 
- * Read a Fasta file and extract only the header lines (Hint: regex)
- * Read a Fasta file, rename the headers with sequential numbers, and write a new Fasta file (Hint: Use if/else + regex)
+ * Read a Fasta file and extract only the header lines (Hint: Regex)
+ * Read a Fasta file, extract header lines, write a tab-separated table of Genbank accession number (column 1) and description (column 2)
 
 ---
 
@@ -241,3 +241,26 @@ while (<$input>) {
 close($input);
 ```
 Quiz: What does `^` mean in the RegEx?
+
+---
+
+## Task 2 - Make a table from Genbank headers
+
+```
+>NR_117372.1 Reinekea aestuarii strain IMCC 4489 16S ribosomal RNA gene, partial sequence
+```
+
+---
+
+## Task 2 - Make a table from Genbank headers
+
+```
+>NR_117372.1 Reinekea aestuarii strain IMCC 4489 16S ribosomal RNA gene, partial sequence
+```
+
+```perl
+if ($line =~ m/^>(\w+\.\w+) (.*)/) {
+  my $accession = $1;
+  my $description = $2;
+}
+```
