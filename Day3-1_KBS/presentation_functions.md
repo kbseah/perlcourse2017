@@ -162,7 +162,7 @@ while (<>) {
   }
 }
 ```
-<small>File: XXX</small>
+<small>File: find_fasta_headers.pl</small>
 
 ---
 

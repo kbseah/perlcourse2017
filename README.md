@@ -93,7 +93,12 @@ Topics scheduled for Day 2 that are now in Day 3: Sorting, Reading and writing f
 
 ### Slides
 
+ * [External commands (pdf)](Day3-1_KBS/presentation_external_commands.pdf)
+ * [Subroutines/Functions (pdf)](Day3-1_KBS/presentation_functions.pdf)
 
+### Files for in-class exercises
+
+ * [find_fasta_headers.pl]((Day3-1_KBS/find_fasta_headers.pl)
 
 ### Handout
 
