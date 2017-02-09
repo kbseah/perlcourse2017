@@ -98,7 +98,7 @@ Topics scheduled for Day 2 that are now in Day 3: Sorting, Reading and writing f
 
 ### Files for in-class exercises
 
- * [find_fasta_headers.pl]((Day3-1_KBS/find_fasta_headers.pl)
+ * [find_fasta_headers.pl](Day3-1_KBS/find_fasta_headers.pl)
 
 ### Handout
 
