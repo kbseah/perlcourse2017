@@ -75,7 +75,7 @@ Try the exercises first before peeking at the solutions! You can always know whe
 
 ### Homework exercises
 
- * [Arrays and Hashes](Day2-1_LSA/)
+ * [Arrays and Hashes](Day2-1_LSA/Exercises-ArraysHashesLS.ipynb)
  * [Homework: Fetch CDS from Genbank](Day2-1_LSA/HomeWork_FetchCDSfromGBK.pl)
 
 ### Handout
